@@ -1,12 +1,13 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
   imports: [
     HttpClientModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
@@ -24,7 +25,7 @@ export class BookComponent {
 
   currentBookId = ""
 
-  constructor(private http: HttpClient)
+  constructor(private http: HttpClient, private router: Router)
   {
     this.getAllBooks()
   }
@@ -37,5 +38,9 @@ export class BookComponent {
       console.log(resultData)
       this.bookArray = resultData
     })
+  }
+
+  handleAddNewButton() {
+    this.router.navigate(["addbook"])
   }
 }
