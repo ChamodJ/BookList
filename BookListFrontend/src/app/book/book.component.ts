@@ -1,10 +1,12 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book',
   imports: [
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
@@ -28,5 +30,12 @@ export class BookComponent {
   }
 
   getAllBooks() {
+    console.log("Inside getAllBooks")
+    this.http.get("http://localhost:5137/api/book/getbooks")
+    .subscribe((resultData: any) => {
+      this.isResultLoaded = true
+      console.log(resultData)
+      this.bookArray = resultData
+    })
   }
 }

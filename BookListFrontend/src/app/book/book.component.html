@@ -17,11 +17,12 @@
       </thead>
 
       <tbody>
-        <tr >
-          <td>ABS</td>
-          <td>ABS</td>
-          <td>ABS</td>
-          <td>ABS</td>
+        <h1 *ngIf = "!isResultLoaded">Loading........</h1>
+        <tr *ngFor="let BookItem of bookArray">
+          <td>{{ BookItem.title }}</td>
+          <td>{{ BookItem.author }}</td>
+          <td>{{ BookItem.isbn }}</td>
+          <td>{{ BookItem.publicationDate }}</td>
           <td class="actions">
             <button class="edit-button">Edit</button>
             <button class="delete-button">Delete</button>
