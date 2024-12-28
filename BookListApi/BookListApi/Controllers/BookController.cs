@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookListApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/book")]
     [ApiController]
     public class BookController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace BookListApi.Controllers
         }
 
         [HttpGet]
-        [Route("getBooks")]
+        [Route("getbooks")]
         public async Task<IEnumerable<Book>> GetBooks()
         {
             return await _dBContext.Book.ToListAsync();
