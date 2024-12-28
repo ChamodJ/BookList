@@ -31,7 +31,6 @@ export class BookComponent {
   }
 
   getAllBooks() {
-    console.log("Inside getAllBooks")
     this.http.get("http://localhost:5137/api/book/getbooks")
     .subscribe((resultData: any) => {
       this.isResultLoaded = true
