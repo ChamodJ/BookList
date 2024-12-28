@@ -42,4 +42,21 @@ export class BookComponent {
   handleAddNewButton() {
     this.router.navigate(["addbook"])
   }
+
+  handleEditButton( id : number) {
+    this.router.navigate([ 'editbook', id])
+  }
+
+  handleDeleteButton ( id : number ){
+    this.http.delete(`http://localhost:5137/api/book/deletebook/${id}`)
+    .subscribe(( resultData : any ) => {
+      console.log("Book deleted successfully:", resultData);
+      alert("Book deleted successfully!");
+      this.getAllBooks();
+    } ,
+    (error) => {
+      console.error("Error deleting book:", error);
+      alert("An error occurred while deleting the book.");
+    })
+  }
 }

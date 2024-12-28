@@ -24,8 +24,8 @@
           <td>{{ BookItem.isbn }}</td>
           <td>{{ BookItem.publicationDate }}</td>
           <td class="actions">
-            <button class="edit-button">Edit</button>
-            <button class="delete-button">Delete</button>
+            <button class="edit-button" (click)="handleEditButton(BookItem.id)">Edit</button>
+            <button class="delete-button" (click)="handleDeleteButton(BookItem.id)">Delete</button>
           </td>
         </tr>
       </tbody>
