@@ -46,4 +46,8 @@ export class NewBookComponent {
     }
   )
   }
+
+  handleBackButton() {
+    this.router.navigate(['/']);
+  }
 }
