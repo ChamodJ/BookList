@@ -52,14 +52,16 @@ export class EditBookComponent {
 
   handleSubmit() {
     const updatedBook = {
+      id: this.bookId,
       title: this.bTitle,
       author: this.bAuthor,
       isbn: this.bISBN,
       publicationDate: this.bPubDate
     };
 
+    console.log(updatedBook)
 
-    this.http.put(`http://localhost:5137/api/book/updatebook/${this.bookId}`, updatedBook)
+    this.http.patch(`http://localhost:5137/api/book/updatebook/${this.bookId}`, updatedBook)
       .subscribe((resultData: any) => {
         console.log("Book updated successfully:", resultData);
         alert("Book updated successfully!");
