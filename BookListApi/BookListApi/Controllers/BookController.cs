@@ -24,6 +24,24 @@ namespace BookListApi.Controllers
             return await _dBContext.Book.ToListAsync();
         }
 
+        [HttpGet]
+        [Route("getbook/{id}")]
+        public async Task<ActionResult<Task>> getBookById(int id)
+        {
+            var book = await _dBContext.Book.FindAsync(id);
+
+            if (book == null)
+            {
+                return NotFound(new { message = "Book not found" });
+            }
+            else
+            {
+                return Ok(book);
+            }
+
+            
+        }
+
         [HttpPost]
         [Route("newbook")]
         public async Task<Book> AddBook(Book objBook)
